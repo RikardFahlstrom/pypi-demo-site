@@ -11,7 +11,6 @@ blueprint = flask.Blueprint('home', __name__, template_folder='templates')
 def index():
     test_packages = package_service.get_latest_packages()
     return {'packages': test_packages}
-    #return flask.render_template(, packages=test_packages)
 
 
 @blueprint.route('/about')
