@@ -97,3 +97,15 @@ body {
     font-weight: normal;
     font-style: italic;
 }
+
+footer {
+    margin-top: 50px;
+    padding: 30px;
+    text-align: center;
+    background-color: #006dad;
+    color: white;
+}
+
+footer a {
+    color: #2495f2;
+}
