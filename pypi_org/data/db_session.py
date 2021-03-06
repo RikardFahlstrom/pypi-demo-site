@@ -19,7 +19,7 @@ def global_init(db_file: str):
     conn_str = 'sqlite:///' + db_file.strip()
     print("Connecting to DB with {}".format(conn_str))
 
-    engine = sa.create_engine(conn_str, echo=True)
+    engine = sa.create_engine(conn_str, echo=False)
     __factory = orm.sessionmaker(bind=engine)
 
     import pypi_org.data.__all_models
@@ -28,4 +28,8 @@ def global_init(db_file: str):
 
 def create_session() -> Session:
     global __factory
-    return __factory()
+
+    session: Session = __factory()
+    session.expire_on_commit = False
+
+    return session
